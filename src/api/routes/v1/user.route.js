@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/getuser/:userId', verifyToken.verify, userController.getOneUser);
 router.put('/update/:userId', verifyToken.verify, userController.updateUser);
-router.get('/getall', userController.getAllUser);
+router.get('/getall', verifyToken.verify, userController.getAllUser);
 router.delete('/delete', verifyToken.verify, userController.deleteUser);
 
 module.exports = router;
